@@ -1,3 +1,5 @@
 node_modules
 dist
 .parcel_cache
+data.mdb
+lock.mdb
