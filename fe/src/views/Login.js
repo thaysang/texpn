@@ -18,6 +18,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(async (data) => {
             const r = await axios.post("https://nodejs-fake-api.herokuapp.com/login",data)
             await setDt(r.data)
+            await console.log(dt)
             navigate("/")
             })}>
           <Box sx={{display:"flex", flexDirection:"column"}}>

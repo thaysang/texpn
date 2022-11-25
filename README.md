@@ -3,4 +3,3 @@ rm package-lock.json
 rm -rf node_modules
 npm i
 npm start
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2OTIwMjM0NCwiZXhwIjoxNjY5MjAzMjQ0fQ.OBBMqxAp0PTMKuWu7OHryHfZLDN3-lY14hgUu_w4SFA
