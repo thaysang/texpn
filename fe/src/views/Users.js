@@ -5,18 +5,19 @@ import axios from 'axios'
 import {useValue} from '../Context'
 import {Box,Button, Avatar} from '@mui/material'
 
-const fetcher = url => axios.get(url).then(res => res.data)
 
-const Home = () => {
+const Users = () => {
     const {dt,setDt} = useValue()
-    const { data, error } = useSWR('https://nodejs-fake-api.herokuapp.com/products', fetcher)
+    const fetcher = url => axios.get(url, { headers: { Authorization: `Bearer ${dt.accessToken}` }}).then(res => res.data)
+
+    const { data, error } = useSWR('https://nodejs-fake-api.herokuapp.com/users', fetcher)
     
     if (error) return <h1>error: {error.message}</h1>
     if (!data) return <h1>Loading...</h1>
 
     return <div>
      {dt && dt.username? <Box sx={{display:"flex",flexDirection:"row"}}>
-        <Link to="/users">users</Link>
+        <Link to="/">Home</Link>
         <Avatar src={dt.avatar}/>
         <h5>{dt.username}</h5> 
         <Button>Logout</Button>
@@ -25,11 +26,11 @@ const Home = () => {
     <div>
         {
             data.map((item, index)=> <div key={index}>
-                <h4>{item.name}</h4>
+                <h4>{item.username}</h4>
             </div>)
         }
     </div>
 </div>}
 
 
-export default Home
+export default Users
