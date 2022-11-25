@@ -19,7 +19,7 @@ const Home = () => {
         <Link to="/users">users</Link>
         <Avatar src={dt.avatar}/>
         <h5>{dt.username}</h5> 
-        <Button>Logout</Button>
+        <Button onClick={()=>{setDt({})}}>Logout</Button>
         </Box> : <Link to="/login">Login</Link>
         }
     <div>

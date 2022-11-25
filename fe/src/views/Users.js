@@ -5,7 +5,6 @@ import axios from 'axios'
 import {useValue} from '../Context'
 import {Box,Button, Avatar} from '@mui/material'
 
-
 const Users = () => {
     const {dt,setDt} = useValue()
     const fetcher = url => axios.get(url, { headers: { Authorization: `Bearer ${dt.accessToken}` }}).then(res => res.data)
@@ -20,12 +19,12 @@ const Users = () => {
         <Link to="/">Home</Link>
         <Avatar src={dt.avatar}/>
         <h5>{dt.username}</h5> 
-        <Button>Logout</Button>
         </Box> : <Link to="/login">Login</Link>
         }
     <div>
         {
             data.map((item, index)=> <div key={index}>
+                <Avatar src={item.avatar}/>
                 <h4>{item.username}</h4>
             </div>)
         }
