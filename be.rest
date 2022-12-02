@@ -1,0 +1,2 @@
+GET https://3000-sangltv-texpn-uygyzrg3fer.ws-us77.gitpod.io
+Access-Control-Allow-Origin: true
