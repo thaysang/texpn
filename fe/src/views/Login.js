@@ -16,7 +16,7 @@ const Login = () => {
     const navigate = useNavigate()
       return (
         <form onSubmit={handleSubmit(async (data) => {
-            const r = await axios.post("https://nodejs-fake-api.herokuapp.com/login",data)
+            const r = await axios.post("https://3000-sangltv-texpn-33ara9icvos.ws-us77.gitpod.io/login",data)
             await setDt(r.data)
             await console.log(dt)
             navigate("/")

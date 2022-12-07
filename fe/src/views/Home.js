@@ -9,7 +9,7 @@ const fetcher = url => axios.get(url).then(res => res.data)
 
 const Home = () => {
     const {dt,setDt} = useValue()
-    const { data, error } = useSWR('https://3000-sangltv-texpn-tg2mj45qejf.ws-us77.gitpod.io/', fetcher)
+    const { data, error } = useSWR('https://3000-sangltv-texpn-33ara9icvos.ws-us77.gitpod.io/', fetcher)
     
     if (error) return <h1>error: {error.message}</h1>
     if (!data) return <h1>Loading...</h1>
