@@ -16,10 +16,18 @@ const Login = () => {
     const navigate = useNavigate()
       return (
         <form onSubmit={handleSubmit(async (data) => {
+          try {
             const r = await axios.post("https://3000-sangltv-texpn-33ara9icvos.ws-us77.gitpod.io/login",data)
+            console.log(r)
             await setDt(r.data)
             await console.log(dt)
             navigate("/")
+          } catch (error) {
+            console.error(error);
+            // expected output: ReferenceError: nonExistentFunction is not defined
+            // Note - error messages will vary depending on browser
+          }
+            
             })}>
           <Box sx={{display:"flex", flexDirection:"column"}}>
           <Input type="username" placehoder="username" {...register('username', { required: true })} />
