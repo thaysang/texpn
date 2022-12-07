@@ -13,6 +13,7 @@ app.get("/", (request, respond)=>{
 })
 
 app.get("/users",(request, respond)=>{
+    
     respond.json(db.users)
 })
 
