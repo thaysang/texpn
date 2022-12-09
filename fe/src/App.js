@@ -11,6 +11,7 @@ const App = () => {
     const [dt, setDt] = useState({})
 
     useEffect(()=>{
+        console.log("START")
         const getData = async () => {
             const dbt = await lf.getItem('database')
             if (dbt) await setDt(dbt)
@@ -19,6 +20,7 @@ const App = () => {
     },[])
 
     useBeforeUnload(async ()=>{
+        console.log("UNLOAD")
         await lf.setItem("database", dt)
     })
 
