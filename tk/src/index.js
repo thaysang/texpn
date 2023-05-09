@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const https = require('https')
+const fs = require('fs')
 const jwt = require('jsonwebtoken')
 
 const app = express()
@@ -40,4 +42,14 @@ app.post("/login", (request,respond) =>{
 
 })
 
-app.listen(8080)
+https
+.createServer(
+  {
+    key: fs.readFileSync("src/ca/key.pem"),
+    cert: fs.readFileSync("src/ca/cert.pem"),
+  },
+  app
+)
+.listen(8080, () => {
+  console.log("serever is runing at port 8080");
+});
