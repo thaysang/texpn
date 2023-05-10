@@ -23,11 +23,10 @@ const db = {
     ]
 }
 
-const findOne = ({username}) => {
-    return db.users.find((obj)=>obj.username === username)
+export const allProducts = () => {
+    return db.products
 }
 
-module.exports = {
-    db,
-    findOne
+export const findOne = ({username}) => {
+    return db.users.find((obj)=>obj.username === username)
 }

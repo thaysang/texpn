@@ -4,7 +4,7 @@
   "description": "",
   "bin": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon  --exec babel-node index.js",
     "build": "pkg . -t node16-linux-x64"
   },
   "keywords": [],
@@ -14,9 +14,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5",
     "nodemon": "^2.0.22"
   }
 }
