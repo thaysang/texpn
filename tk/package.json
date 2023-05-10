@@ -2,9 +2,9 @@
   "name": "tk",
   "version": "1.0.0",
   "description": "",
-  "bin": "src/index.js",
+  "bin": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

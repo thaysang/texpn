@@ -4,7 +4,12 @@ const cors = require('cors')
 const https = require('https')
 const fs = require('fs')
 const jwt = require('jsonwebtoken')
-
+const options = {
+    key: fs.readFileSync( 'key.pem' ),
+    cert: fs.readFileSync( 'cert.pem' ),
+    requestCert: false,
+    rejectUnauthorized: false
+};
 const app = express()
 const {db, findOne} = require('./db')
 
@@ -42,14 +47,4 @@ app.post("/login", (request,respond) =>{
 
 })
 
-https
-.createServer(
-  {
-    key: fs.readFileSync("src/ca/key.pem"),
-    cert: fs.readFileSync("src/ca/cert.pem"),
-  },
-  app
-)
-.listen(8080, () => {
-  console.log("serever is runing at port 8080");
-});
+https.createServer(options,app).listen(8080, () => {});
