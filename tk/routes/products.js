@@ -3,7 +3,8 @@ import {allProducts} from '../data'
 const router = express.Router()
 const db = {posts:[]}
 
-router.get('/',(req,res) => {
+router
+.get('/',(req,res) => {
     return res.json(allProducts())
 })
 

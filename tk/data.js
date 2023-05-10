@@ -1,11 +1,6 @@
 const db = {
     users: [
-        {id:0,
-        username:"admin",
-        password:"admin"},
-         {id:1,
-        username:"long",
-        password:"longpass"}
+        
     ],
     products:[
         {
