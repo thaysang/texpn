@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
-const http = require('http')
 
 // const fs = require('fs')
 // const options = {
@@ -49,4 +48,4 @@ app.post("/login", (request,respond) =>{
 
 })
 
-http.createServer(app).listen(8080, () => {});
+app.listen(8080, () => {});
