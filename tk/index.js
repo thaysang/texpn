@@ -1,15 +1,17 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const https = require('https')
-const fs = require('fs')
 const jwt = require('jsonwebtoken')
-const options = {
-    key: fs.readFileSync( 'key.pem' ),
-    cert: fs.readFileSync( 'cert.pem' ),
-    requestCert: false,
-    rejectUnauthorized: false
-};
+const http = require('http')
+
+// const fs = require('fs')
+// const options = {
+//     key: fs.readFileSync( 'key.pem' ),
+//     cert: fs.readFileSync( 'cert.pem' ),
+//     requestCert: false,
+//     rejectUnauthorized: false
+// };
+
 const app = express()
 const {db, findOne} = require('./db')
 
@@ -47,4 +49,4 @@ app.post("/login", (request,respond) =>{
 
 })
 
-https.createServer(options,app).listen(8080, () => {});
+http.createServer(app).listen(8080, () => {});
