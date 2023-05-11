@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon  --exec babel-node src/index.js",
     "dist": "babel src -d dist",
-    "pg": "pkg . -t node16-linux-x64",
+    "pg": "pkg . -t node18-linux-x64",
     "build": "rm -rf dist tk && npm run dist && npm run pg"
   },
   "keywords": [],
