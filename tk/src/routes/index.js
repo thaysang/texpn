@@ -1,6 +1,2 @@
-import products from './products'
-import users from './users'
-export {
-    products,
-    users
-}
+module.exports.products = require('./products')
+module.exports.users = require('./users')

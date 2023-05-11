@@ -1,5 +1,5 @@
-import express from 'express'
-import db from '../data'
+const express = require('express')
+const db  = require( '../data')
 const router = express.Router()
 
 router
@@ -25,4 +25,4 @@ router
     return res.json({success:true})
 })
 
-export default router
+module.exports = router

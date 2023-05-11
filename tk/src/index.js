@@ -1,9 +1,9 @@
-import express from "express"
-import helmet from 'helmet'
-import dotenv from 'dotenv'
-import products from './routes/products'
-import users from './routes/users'
-import cors from 'cors'
+const express = require("express")
+const helmet = require("helmet")
+const dotenv = require("dotenv")
+const products = require("./routes/products")
+const users = require("./routes/users")
+const cors = require("cors")
 
 dotenv.config()
 

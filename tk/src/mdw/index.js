@@ -1,9 +1,9 @@
-import Joi from 'joi'
-import {hash,compare} from 'bcrypt'
-import jwt from 'jsonwebtoken'
-import db from '../data'
+const Joi = require('joi')
+const {hash,compare} = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const db = require('../data')
 
-export const validateNewUser = async (req,res,next) => {
+module.exports.validateNewUser = async (req,res,next) => {
     
     // //vanila validation
     // if(!req.body.username || req.body.username.length < 3) {
@@ -46,7 +46,7 @@ export const validateNewUser = async (req,res,next) => {
     next()
 }
 
-export const loginUser = async (req,res,next) => {
+module.exports.loginUser = async (req,res,next) => {
     const schema = Joi.object({
         username: Joi.string()
             .alphanum()
@@ -71,7 +71,7 @@ export const loginUser = async (req,res,next) => {
     next()
 }
 
-export const protectRoute = (req,res,next) => {
+module.exports.protectRoute = (req,res,next) => {
     const header = req.headers['authorization']
     const token = header? header.split(' ')[1] : null
     if(!token) return res.status(401).send("Please log in")
@@ -82,14 +82,14 @@ export const protectRoute = (req,res,next) => {
     })
 }
 
-export const generateToken = async (req,res,next) => {
+module.exports.generateToken = async (req,res,next) => {
     const accessToken = await jwt.sign(req.user,process.env.ACCESS_TOKEN,{expiresIn:"60s"})
     const refreshToken =  await jwt.sign(req.user,process.env.REFRESH_TOKEN)
     req.token = await {accessToken,refreshToken}
     next()
 }
 
-export const refreshAccessToken = async (req,res,next) => {
+module.exports.refreshAccessToken = async (req,res,next) => {
     if(!req.body.token) return res.status(401).send("Wrong Token")
     jwt.verify(req.body.token, process.env.REFRESH_TOKEN, async (err,user) =>{
         if(err) return res.status(401).send(err.message)

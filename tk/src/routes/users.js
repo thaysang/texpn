@@ -1,6 +1,6 @@
-import express from 'express'
-import db from '../data'
-import { validateNewUser,protectRoute,loginUser,generateToken,refreshAccessToken } from '../mdw'
+const express = require('express')
+const db = require('../data')
+const { validateNewUser,protectRoute,loginUser,generateToken,refreshAccessToken } = require('../mdw')
 const router = express.Router()
 
 router
@@ -31,4 +31,4 @@ router
     return res.json({success:true})
 })
 
-export default router
+module.exports = router

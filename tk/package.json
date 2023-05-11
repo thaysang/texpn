@@ -4,7 +4,7 @@
   "description": "",
   "bin": "dist/index.js",
   "scripts": {
-    "start": "nodemon  --exec babel-node src/index.js",
+    "start": "nodemon src/index.js",
     "dist": "babel src -d dist",
     "pg": "pkg . -t node18-linux-x64",
     "build": "rm -rf dist tk && npm run dist && npm run pg"
@@ -22,10 +22,6 @@
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.21.8",
-    "@babel/node": "^7.20.7",
-    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "nodemon": "^2.0.22"
   }
 }
