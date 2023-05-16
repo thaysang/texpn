@@ -18,6 +18,4 @@ app.use("/users",users)
 app.use("/",(req,res)=>{
     return res.redirect("/products")
 })
-app.listen(8080,()=>{
-    console.log("server run on: 8080")
-})
+app.listen(8080,()=>{})
