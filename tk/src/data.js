@@ -10,6 +10,11 @@ const db = {
             "id": 1,
             "username": "zshop",
             "password": "$2b$10$LCr3bpHFdH.l3l/HCZcZZe8dmzGZfBlo/01IWiNVeoWmL8PvwccHO"
+          },
+          {
+            "id": 2,
+            "username": "user1",
+            "password": "$2a$10$q8rths.rBMbElgQvQNDb1.qklcJM4f4jnikKqq6sX7PQmulYFh5Du"
           }
     ],
     products:[

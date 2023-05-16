@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const {hash,compare} = require('bcrypt')
+const {hash,compare} = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const db = require('../data')
 
@@ -90,8 +90,11 @@ module.exports.generateToken = async (req,res,next) => {
 }
 
 module.exports.refreshAccessToken = async (req,res,next) => {
-    if(!req.body.token) return res.status(401).send("Wrong Token")
-    jwt.verify(req.body.token, process.env.REFRESH_TOKEN, async (err,user) =>{
+    const header = req.headers['authorization']
+    const token = header? header.split(' ')[1] : null
+    if(!token) return res.status(401).send("you don't have permistion to refresh")
+    // if(!req.body.token) return res.status(401).send("Wrong Token")
+    jwt.verify(token, process.env.REFRESH_TOKEN, async (err,user) =>{
         if(err) return res.status(401).send(err.message)
         //ignore iat and exp in user
         const accessToken = await jwt.sign({username:user.username},process.env.ACCESS_TOKEN,{expiresIn:"60s"})
